@@ -25,6 +25,7 @@ export const reducer = (state = initialState,action) => {
                 return{
                  ...state,
                  facts: action.payload,
+                //  isLoading:false,
                 };
             case FETCH_FAILURE:
                 return{

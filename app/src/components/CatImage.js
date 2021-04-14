@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import {fetchData} from '../store'
 import {useEffect} from 'react'
+import './CatImage.css'
 
 const CatImage = (props) => {
 
@@ -10,14 +11,20 @@ const CatImage = (props) => {
 
     return(
         <div>
-        <h1>Hey there from ./components/CatImage</h1>
         <div className="catWrapper">
+            <div className="factContainer">
+                <h1 style = {{color:"blue"}}>CAT FACTS</h1>
             {props.isLoading ? <h3>Loading data...</h3>:null}
             {props.error ? <p style = {{color:"red"}}>{props.error}</p>:null}
+            <ol>
             {props.facts.map((fact) => {
-                return(<h1 key= {fact.text}>{fact.text}</h1>)
+                return(<li key= {fact.text}>{fact.text}</li>)
             })}
+            </ol>
+            </div>
+            <div className="imageContainer">
             <img src= {props.cats.webpurl}/>
+            </div>
         </div>
         </div>
     )
